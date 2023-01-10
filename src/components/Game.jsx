@@ -5,7 +5,6 @@ import Result from './Result';
 import { useEffect, useState } from 'react';
 
 const Game = ({ username }) => {
-    // Non reactive variable
     const gameData = {
         validMoves: ['rock', 'paper', 'scissors'], // rock paper scissors
         validGames: ['y', 'n', 'q'], // yes no quit
@@ -30,12 +29,11 @@ const Game = ({ username }) => {
         let result;
         switch (player + computer[0]) {
             case 'rs':
-            case 'sr':
+            case 'sp':
             case 'pr':
                 result = username;
                 scores.player++; // 1 to the current score
                 break;
-            // eslint-disable-next-line no-duplicate-case
             case 'sr':
             case 'ps':
             case 'rp':
@@ -56,7 +54,7 @@ const Game = ({ username }) => {
     return (
         <div>
             <h1>Game on {username.toUpperCase()}</h1>
-            <Scores scores={scores} username={username} />
+            <Scores scores={scores} username={username} setScores={setScores} />
             <GameButton buttonText={"Rock"} setChoice={setChoice} />
             <GameButton buttonText={"Paper"} setChoice={setChoice} />
             <GameButton buttonText={"Scissor"} setChoice={setChoice} />

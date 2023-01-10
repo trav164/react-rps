@@ -14,7 +14,7 @@ const Login = ({ setLoginData }) => {
             <button onClick={() => setLoginData({
                 loggedIn: true,
                 username: input,
-            })}>Login</button>
+            })}>Play Now</button>
         </div>
     )
 }
