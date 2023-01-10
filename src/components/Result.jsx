@@ -4,7 +4,7 @@ const Result = ({ result }) => {
     if (result) {
         return (
             <div>
-                <h1>🔥 {result} WINS 🔥</h1>
+                <h1>🔥 {result.toUpperCase()} WINS 🔥</h1>
             </div>
         )
     } else {

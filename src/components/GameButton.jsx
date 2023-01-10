@@ -2,7 +2,7 @@ import '../App.css';
 
 const GameButton = ({ buttonText, setChoice }) => {
     return (
-        <button onClick={() => setChoice(buttonText[0].toLowerCase())}>{buttonText}</button>
+        <button onClick={() => setChoice(buttonText)}>{buttonText}</button>
     );
 }
 

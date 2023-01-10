@@ -1,10 +1,10 @@
 import '../App';
 
-const Scores = () => {
+const Scores = ({ scores, username }) => {
     return (
         <div>
             <h2>Scores</h2>
-            <h4>Player 0 | 0 Computer</h4>
+            <h4>{username.toUpperCase()} {scores.player} | {scores.computer} Computer</h4>
         </div>
     )
 }
