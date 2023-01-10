@@ -9,6 +9,8 @@ const Login = ({ setLoginData }) => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
+                        <p className='prose lg:prose-xl'>Welcome to Lewis' Rock Paper Scissors game.</p>
+                        <p className='prose sm:prose-sm'>The web app was built using react and tailwind css.</p>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -16,7 +18,7 @@ const Login = ({ setLoginData }) => {
                             <input type="text" placeholder="Derek" className="input input-bordered" value={input} onChange={e => setInput(e.target.value)} />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary" onClick={() => setLoginData({
+                            <button className="btn btn-accent" onClick={() => setLoginData({
                                 loggedIn: true,
                                 username: input,
                             })}>Play</button>

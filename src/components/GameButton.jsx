@@ -2,7 +2,7 @@ import '../App.css';
 
 const GameButton = ({ buttonText, setChoice }) => {
     return (
-        <button onClick={() => setChoice(buttonText)}>{buttonText}</button>
+        <button className='btn btn-accent m-6' onClick={() => setChoice(buttonText)}>{buttonText}</button>
     );
 }
 

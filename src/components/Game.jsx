@@ -52,16 +52,19 @@ const Game = ({ username }) => {
         return result;
     }
     return (
-        <div>
-            <h1>Game on {username.toUpperCase()}</h1>
-            <Scores scores={scores} username={username} setScores={setScores} />
-            <GameButton buttonText={"Rock"} setChoice={setChoice} />
-            <GameButton buttonText={"Paper"} setChoice={setChoice} />
-            <GameButton buttonText={"Scissor"} setChoice={setChoice} />
+        <div className='flex h-screen'>
+            <div className='m-auto'>
+                <p>Game on {username.toUpperCase()}</p>
+                <Scores scores={scores} username={username} setScores={setScores} />
 
-            <h3>Your Choice: {choice}</h3>
-            <h3>Computers Choice: {computerMove.toUpperCase()}</h3>
-            <Result result={result} />
+                <GameButton buttonText={"Rock"} setChoice={setChoice} />
+                <GameButton buttonText={"Paper"} setChoice={setChoice} />
+                <GameButton buttonText={"Scissor"} setChoice={setChoice} />
+
+                <p>Your Choice: {choice}</p>
+                <p>Computers Choice: {computerMove.toUpperCase()}</p>
+                <Result result={result} />
+            </div>
         </div>
     )
 }

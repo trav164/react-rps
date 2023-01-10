@@ -12,7 +12,6 @@ const Home = () => {
     if (!loginData.loggedIn) {
         return (
             <div>
-                <h3>Welcome to the rock paper scissors game.</h3>
                 <Login setLoginData={setLoginData} />
             </div>
         )
