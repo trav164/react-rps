@@ -1,3 +1,7 @@
+# TO DO
+add a stepper best of 3 / 5 game, showing who won each round.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
