@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const Game = ({ username }) => {
     // Non reactive variable
     const gameData = {
-        validMoves: ['r', 'p', 's'], // rock paper scissors
+        validMoves: ['rock', 'paper', 'scissors'], // rock paper scissors
         validGames: ['y', 'n', 'q'], // yes no quit
     }
     const [choice, setChoice] = useState('');
@@ -16,16 +16,19 @@ const Game = ({ username }) => {
         player: 0,
         computer: 0,
     });
+    const [computerMove, setComputerMove] = useState('');
 
     useEffect(() => {
         console.warn(choice, '- has changed');
-        setResult(selectWinner(choice[0].toLowerCase()));
+        if (!choice.length) return;
+        setResult(selectWinner(choice[0]?.toLowerCase()));
     }, [choice]);
 
     const selectWinner = (player) => {
         const computer = gameData.validMoves[Math.floor(Math.random() * 3)];
+        setComputerMove(computer);
         let result;
-        switch (player + computer) {
+        switch (player + computer[0]) {
             case 'rs':
             case 'sr':
             case 'pr':
@@ -52,14 +55,14 @@ const Game = ({ username }) => {
     }
     return (
         <div>
-            <h1>Game on {username}</h1>
+            <h1>Game on {username.toUpperCase()}</h1>
             <Scores scores={scores} username={username} />
             <GameButton buttonText={"Rock"} setChoice={setChoice} />
             <GameButton buttonText={"Paper"} setChoice={setChoice} />
             <GameButton buttonText={"Scissor"} setChoice={setChoice} />
 
-            <h3>Choice: {choice}</h3>
-            <h3></h3>
+            <h3>Your Choice: {choice}</h3>
+            <h3>Computers Choice: {computerMove.toUpperCase()}</h3>
             <Result result={result} />
         </div>
     )

@@ -4,7 +4,7 @@ const Scores = ({ scores, username }) => {
     return (
         <div>
             <h2>Scores</h2>
-            <h4>{username.toUpperCase()} {scores.player} | {scores.computer} Computer</h4>
+            <h4>{username.toUpperCase()} {scores.player} | {scores.computer} COMPUTER</h4>
         </div>
     )
 }
