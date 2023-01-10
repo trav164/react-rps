@@ -18,7 +18,7 @@ const Home = () => {
         )
 
     } else {
-        return <Game />
+        return <Game username={loginData.username} />
     }
 }
 

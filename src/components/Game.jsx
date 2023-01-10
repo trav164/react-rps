@@ -1,33 +1,40 @@
 import '../App';
 import Scores from './Scores';
 import GameButton from './GameButton';
-import { useState } from 'react';
+import Result from './Result';
+import { useEffect, useState } from 'react';
 
 const Game = ({ username }) => {
-    const [choice, setChoice] = useState();
+    const [choice, setChoice] = useState('');
+    const [result, setResult] = useState('');
 
     const [gameData, setGameData] = useState({
         player: 0, // score
         computer: 0, // score
-        username: '',
         validMoves: ['r', 'p', 's'], // rock paper scissors
         validGames: ['y', 'n', 'q'], // yes no quit
     })
 
-    const selectWinner = (player, computer) => {
+    useEffect(() => {
+        console.warn(choice, '- has changed');
+        setResult(selectWinner(choice));
+    }, [choice]);
+
+    const selectWinner = (player) => {
+        const computer = gameData.validMoves[Math.floor(Math.random() * 3)];
         let result;
         switch (player + computer) {
             case 'rs':
             case 'sr':
             case 'pr':
-                result = `${gameData.username.toUpperCase()} wins!`;
+                result = username;
                 gameData.player++; // 1 to the current score
                 break;
             // eslint-disable-next-line no-duplicate-case
             case 'sr':
             case 'ps':
             case 'rp':
-                result = 'COMPUTER wins!';
+                result = 'computer';
                 gameData.computer++; // 1 to the current score
                 break;
             case 'pp':
@@ -43,14 +50,14 @@ const Game = ({ username }) => {
     }
     return (
         <div>
-            <h1>Game Component</h1>
+            <h1>Game on {username}</h1>
             <Scores />
-
             <GameButton buttonText={"Rock"} setChoice={setChoice} />
             <GameButton buttonText={"Paper"} setChoice={setChoice} />
             <GameButton buttonText={"Scissor"} setChoice={setChoice} />
 
             <h1>Choice: {choice}</h1>
+            <Result result={result} />
         </div>
     )
 }
