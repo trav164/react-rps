@@ -15,7 +15,7 @@ const Login = ({ setLoginData }) => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="Derek" className="input input-bordered" value={input} onChange={e => setInput(e.target.value)} />
+                            <input type="text" placeholder="" className="input input-bordered" value={input} onChange={e => setInput(e.target.value)} />
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-accent" onClick={() => setLoginData({

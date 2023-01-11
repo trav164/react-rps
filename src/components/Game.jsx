@@ -10,7 +10,7 @@ const Game = ({ username }) => {
         validGames: ['y', 'n', 'q'], // yes no quit
     }
     const [choice, setChoice] = useState('');
-    const [result, setResult] = useState('');
+    const [result, setResult] = useState(null);
     const [scores, setScores] = useState({
         player: 0,
         computer: 0,
@@ -18,7 +18,6 @@ const Game = ({ username }) => {
     const [computerMove, setComputerMove] = useState('');
 
     useEffect(() => {
-        console.warn(choice, '- has changed');
         if (!choice.length) return;
         setResult(selectWinner(choice[0]?.toLowerCase()));
     }, [choice]);
@@ -53,8 +52,8 @@ const Game = ({ username }) => {
     }
     return (
         <div className='flex h-screen'>
-            <div className='m-auto'>
-                <p>Game on {username.toUpperCase()}</p>
+            <div className='m-auto bg-slate-700 p-6 rounded-xl'>
+                <p className='pb-6 text-3xl font-bold text-secondary'>Game on {username.toUpperCase()}</p>
                 <Scores scores={scores} username={username} setScores={setScores} />
 
                 <GameButton buttonText={"Rock"} setChoice={setChoice} />

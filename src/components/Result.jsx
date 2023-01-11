@@ -10,6 +10,9 @@ const Result = ({ result }) => {
     } else {
         return (
             <div>
+                {/* Need to work out how not to render
+                this on first load as nobody has played
+                so it cannot possibly be a draw */}
                 <h1>Round is a draw</h1>
             </div>
         )
